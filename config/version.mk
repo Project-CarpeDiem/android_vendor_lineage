@@ -43,3 +43,13 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.lineage.display.version=$(LINEAGE_DISPLAY_VERSION) \
     ro.lineage.build.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR) \
     ro.lineage.releasetype=$(LINEAGE_BUILDTYPE)
+
+# Project-CarpeDiem branding (parallel, non-breaking - LINEAGE_* vars kept for compat)
+CARPEDIEM_VERSION := CarpeDiem-24.0-$(LINEAGE_VERSION_SUFFIX)
+CARPEDIEM_DISPLAY_VERSION := CarpeDiem-24-$(LINEAGE_VERSION_SUFFIX)
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.carpediem.version=$(CARPEDIEM_VERSION) \
+    ro.carpediem.display.version=$(CARPEDIEM_DISPLAY_VERSION) \
+    ro.carpediem.build.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR) \
+    ro.carpediem.releasetype=$(LINEAGE_BUILDTYPE) \
+    ro.modversion=$(CARPEDIEM_VERSION)
