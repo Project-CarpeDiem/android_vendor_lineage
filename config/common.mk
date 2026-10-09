@@ -337,3 +337,12 @@ endif
 
 # Pixel-style resources (sounds, charger, RROs)
 $(call inherit-product, vendor/pixel-style/config/common.mk)
+
+# Pixel Settings + SystemUI (unconditional, Rising-style)
+PRODUCT_PACKAGES += \
+    SettingsGoogle \
+    SystemUIGoogle
+
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    SettingsGoogle \
+    SystemUIGoogle
