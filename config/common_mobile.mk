@@ -39,6 +39,7 @@ PRODUCT_PACKAGES += \
     Launcher3Overlay
 
 # Charger (res images come from pixel-style)
+WITH_LINEAGE_CHARGER ?= false
 ifneq ($(WITH_LINEAGE_CHARGER),false)
 PRODUCT_PACKAGES += \
     lineage_charger_animation \
