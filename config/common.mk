@@ -309,6 +309,10 @@ include vendor/lineage/config/version.mk
 -include vendor/lineage/config/partner_gms.mk
 
 # Background blur (windows that request blur-behind, e.g. volume panel)
+# Background blur for widget picker
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
+    ro.launcher.depth.widget=true
+
 TARGET_ENABLE_BLUR ?= true
 ifeq ($(TARGET_ENABLE_BLUR),true)
 PRODUCT_PRODUCT_PROPERTIES += \
