@@ -52,8 +52,11 @@ CARPEDIEM_VERSION_CODENAME := Initium
 # Device maintainer (override per-device after inherit, or via env)
 CARPEDIEM_MAINTAINER ?= Unknown
 
+# Package type, tracks WITH_GMS (lazy so common.mk defaults apply)
+CARPEDIEM_PACKAGE_TYPE ?= $(if $(filter true,$(WITH_GMS)),GMS,VANILLA)
+
 # Project-CarpeDiem branding (parallel, non-breaking - LINEAGE_* vars kept for compat)
-CARPEDIEM_VERSION := CarpeDiem-$(CARPEDIEM_VERSION_MAJOR).$(CARPEDIEM_VERSION_MINOR)-$(CARPEDIEM_VERSION_CODENAME)-$(LINEAGE_VERSION_SUFFIX)
+CARPEDIEM_VERSION = CarpeDiem-$(CARPEDIEM_VERSION_MAJOR).$(CARPEDIEM_VERSION_MINOR)-$(CARPEDIEM_VERSION_CODENAME)-$(CARPEDIEM_PACKAGE_TYPE)-$(LINEAGE_VERSION_SUFFIX)
 CARPEDIEM_DISPLAY_VERSION := CarpeDiem-$(CARPEDIEM_VERSION_MAJOR).$(CARPEDIEM_VERSION_MINOR)-$(CARPEDIEM_VERSION_CODENAME)
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.carpediem.version=$(CARPEDIEM_VERSION) \
@@ -61,5 +64,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.carpediem.build.version=$(CARPEDIEM_VERSION_MAJOR).$(CARPEDIEM_VERSION_MINOR) \
     ro.carpediem.codename=$(CARPEDIEM_VERSION_CODENAME) \
     ro.carpediem.maintainer=$(CARPEDIEM_MAINTAINER) \
+    ro.carpediem.packagetype=$(CARPEDIEM_PACKAGE_TYPE) \
     ro.carpediem.releasetype=$(LINEAGE_BUILDTYPE) \
     ro.modversion=$(CARPEDIEM_VERSION)
