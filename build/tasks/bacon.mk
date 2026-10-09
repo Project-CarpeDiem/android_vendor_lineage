@@ -14,16 +14,16 @@
 # limitations under the License.
 
 # -----------------------------------------------------------------
-# Lineage OTA update package
+# CarpeDiem OTA update package
 
-LINEAGE_TARGET_PACKAGE := $(PRODUCT_OUT)/lineage-$(LINEAGE_VERSION).zip
+CARPEDIEM_TARGET_PACKAGE := $(PRODUCT_OUT)/carpediem-$(CARPEDIEM_VERSION).zip
 
 SHA256 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/sha256sum
 
-$(LINEAGE_TARGET_PACKAGE): $(INTERNAL_OTA_PACKAGE_TARGET)
-	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(LINEAGE_TARGET_PACKAGE)
-	$(hide) $(SHA256) $(LINEAGE_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(LINEAGE_TARGET_PACKAGE).sha256sum
-	@echo "Package Complete: $(LINEAGE_TARGET_PACKAGE)" >&2
+$(CARPEDIEM_TARGET_PACKAGE): $(INTERNAL_OTA_PACKAGE_TARGET)
+	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(CARPEDIEM_TARGET_PACKAGE)
+	$(hide) $(SHA256) $(CARPEDIEM_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(CARPEDIEM_TARGET_PACKAGE).sha256sum
+	@echo "Package Complete: $(CARPEDIEM_TARGET_PACKAGE)" >&2
 
 .PHONY: bacon
-bacon: $(LINEAGE_TARGET_PACKAGE) $(DEFAULT_GOAL)
+bacon: $(CARPEDIEM_TARGET_PACKAGE) $(DEFAULT_GOAL)
