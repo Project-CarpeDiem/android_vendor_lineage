@@ -314,3 +314,18 @@ GMS_MAKEFILE ?= gms_mini.mk
 ifeq ($(WITH_GMS),true)
 $(call inherit-product, vendor/gms/$(GMS_MAKEFILE))
 endif
+
+# Default launcher (GMS builds default to Pixel Launcher)
+TARGET_DEFAULT_PIXEL_LAUNCHER ?= true
+ifeq ($(WITH_GMS),true)
+ifeq ($(TARGET_DEFAULT_PIXEL_LAUNCHER),true)
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.sys.default_launcher=1
+else
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.sys.default_launcher=0
+endif
+else
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.sys.default_launcher=0
+endif
