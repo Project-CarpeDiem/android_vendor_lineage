@@ -308,6 +308,13 @@ include vendor/lineage/config/version.mk
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 -include vendor/lineage/config/partner_gms.mk
 
+# Background blur (windows that request blur-behind, e.g. volume panel)
+TARGET_ENABLE_BLUR ?= true
+ifeq ($(TARGET_ENABLE_BLUR),true)
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.surface_flinger.supports_background_blur=1
+endif
+
 # GMS prebuilts (default off, GMS via WITH_GMS=true)
 WITH_GMS ?= false
 GMS_MAKEFILE ?= gms_mini.mk
