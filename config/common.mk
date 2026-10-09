@@ -326,6 +326,10 @@ ifeq ($(WITH_GMS),true)
 $(call inherit-product, vendor/gms/$(GMS_MAKEFILE))
 endif
 
+# Wallpaper & style
+PRODUCT_PACKAGES += \
+    ThemePicker
+
 # Default launcher (GMS builds default to Pixel Launcher)
 TARGET_DEFAULT_PIXEL_LAUNCHER ?= true
 ifeq ($(WITH_GMS),true)
