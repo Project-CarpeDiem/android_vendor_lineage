@@ -44,12 +44,22 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.lineage.build.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR) \
     ro.lineage.releasetype=$(LINEAGE_BUILDTYPE)
 
+# Project-CarpeDiem platform version
+CARPEDIEM_VERSION_MAJOR := 1
+CARPEDIEM_VERSION_MINOR := 0
+CARPEDIEM_VERSION_CODENAME := Initium
+
+# Device maintainer (override per-device after inherit, or via env)
+CARPEDIEM_MAINTAINER ?= Unknown
+
 # Project-CarpeDiem branding (parallel, non-breaking - LINEAGE_* vars kept for compat)
-CARPEDIEM_VERSION := CarpeDiem-24.0-$(LINEAGE_VERSION_SUFFIX)
-CARPEDIEM_DISPLAY_VERSION := CarpeDiem-24-$(LINEAGE_VERSION_SUFFIX)
+CARPEDIEM_VERSION := CarpeDiem-$(CARPEDIEM_VERSION_MAJOR).$(CARPEDIEM_VERSION_MINOR)-$(CARPEDIEM_VERSION_CODENAME)-$(LINEAGE_VERSION_SUFFIX)
+CARPEDIEM_DISPLAY_VERSION := CarpeDiem-$(CARPEDIEM_VERSION_MAJOR).$(CARPEDIEM_VERSION_MINOR)-$(CARPEDIEM_VERSION_CODENAME)
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.carpediem.version=$(CARPEDIEM_VERSION) \
     ro.carpediem.display.version=$(CARPEDIEM_DISPLAY_VERSION) \
-    ro.carpediem.build.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR) \
+    ro.carpediem.build.version=$(CARPEDIEM_VERSION_MAJOR).$(CARPEDIEM_VERSION_MINOR) \
+    ro.carpediem.codename=$(CARPEDIEM_VERSION_CODENAME) \
+    ro.carpediem.maintainer=$(CARPEDIEM_MAINTAINER) \
     ro.carpediem.releasetype=$(LINEAGE_BUILDTYPE) \
     ro.modversion=$(CARPEDIEM_VERSION)
