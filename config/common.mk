@@ -344,8 +344,4 @@ TARGET_BOOTANIMATION := vendor/lineage/prebuilt/common/bootanimation/bootanimati
 endif
 
 # Pixel Settings + SystemUI (unconditional, Rising-style)
-PRODUCT_PACKAGES += \
-    SystemUIGoogle
-
-PRODUCT_DEXPREOPT_SPEED_APPS += \
-    SystemUIGoogle
+# Pixel Settings + SystemUI (dropped: built against a different SystemUI base)
