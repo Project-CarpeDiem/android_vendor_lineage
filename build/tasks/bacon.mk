@@ -16,7 +16,7 @@
 # -----------------------------------------------------------------
 # CarpeDiem OTA update package
 
-CARPEDIEM_TARGET_PACKAGE := $(PRODUCT_OUT)/carpediem-$(CARPEDIEM_VERSION).zip
+CARPEDIEM_TARGET_PACKAGE := $(PRODUCT_OUT)/$(CARPEDIEM_VERSION).zip
 
 SHA256 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/sha256sum
 
