@@ -23,6 +23,8 @@ SHA256 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/sha256sum
 $(CARPEDIEM_TARGET_PACKAGE): $(INTERNAL_OTA_PACKAGE_TARGET)
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(CARPEDIEM_TARGET_PACKAGE)
 	$(hide) $(SHA256) $(CARPEDIEM_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(CARPEDIEM_TARGET_PACKAGE).sha256sum
+	@cat build/make/carpediem_ascii_logo >&2
+	@echo "" >&2
 	@echo "Package Complete: $(CARPEDIEM_TARGET_PACKAGE)" >&2
 
 .PHONY: bacon
