@@ -329,3 +329,8 @@ else
 PRODUCT_SYSTEM_PROPERTIES += \
     persist.sys.default_launcher=0
 endif
+
+# Single setup wizard: Google's wins on GMS builds
+ifeq ($(WITH_GMS),true)
+PRODUCT_PACKAGES := $(filter-out LineageSetupWizard,$(PRODUCT_PACKAGES))
+endif
