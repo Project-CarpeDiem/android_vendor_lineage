@@ -335,7 +335,8 @@ ifeq ($(WITH_GMS),true)
 PRODUCT_PACKAGES := $(filter-out LineageSetupWizard,$(PRODUCT_PACKAGES))
 endif
 
-# Bootanimation (Google Monet)
+# Bootanimation (Google Monet owns product/media, drop generated ones)
+PRODUCT_PACKAGES := $(filter-out bootanimation.zip bootanimation-dark.zip,$(PRODUCT_PACKAGES))
 PRODUCT_COPY_FILES += \
     vendor/lineage/prebuilt/common/bootanimation/bootanimation_monet.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
 
