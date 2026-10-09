@@ -26,6 +26,8 @@ $(CARPEDIEM_TARGET_PACKAGE): $(INTERNAL_OTA_PACKAGE_TARGET)
 	@cat build/make/carpediem_ascii_logo >&2
 	@echo "" >&2
 	@echo "Package Complete: $(CARPEDIEM_TARGET_PACKAGE)" >&2
+	@echo "" >&2
+	@echo "Thank you for building CarpeDiem - seize the day!" >&2
 
 .PHONY: bacon
 bacon: $(CARPEDIEM_TARGET_PACKAGE) $(DEFAULT_GOAL)
