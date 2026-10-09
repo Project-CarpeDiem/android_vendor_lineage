@@ -38,10 +38,7 @@ endif
 PRODUCT_PACKAGES += \
     Launcher3Overlay
 
-# Charger
-PRODUCT_PACKAGES += \
-    charger_res_images
-
+# Charger (res images come from pixel-style)
 ifneq ($(WITH_LINEAGE_CHARGER),false)
 PRODUCT_PACKAGES += \
     lineage_charger_animation \
