@@ -334,3 +334,6 @@ endif
 ifeq ($(WITH_GMS),true)
 PRODUCT_PACKAGES := $(filter-out LineageSetupWizard,$(PRODUCT_PACKAGES))
 endif
+
+# Pixel-style resources (sounds, charger, RROs)
+$(call inherit-product, vendor/pixel-style/config/common.mk)
