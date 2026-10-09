@@ -308,8 +308,8 @@ include vendor/lineage/config/version.mk
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 -include vendor/lineage/config/partner_gms.mk
 
-# GMS prebuilts (default on, vanilla via WITH_GMS=false)
-WITH_GMS ?= true
+# GMS prebuilts (default off, GMS via WITH_GMS=true)
+WITH_GMS ?= false
 GMS_MAKEFILE ?= gms_mini.mk
 ifeq ($(WITH_GMS),true)
 $(call inherit-product, vendor/gms/$(GMS_MAKEFILE))
