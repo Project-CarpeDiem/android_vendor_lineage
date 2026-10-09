@@ -338,6 +338,10 @@ endif
 # Pixel-style resources (sounds, charger, RROs)
 $(call inherit-product, vendor/pixel-style/config/common.mk)
 
+# Bootanimation (Google Monet)
+PRODUCT_COPY_FILES += \
+    vendor/lineage/prebuilt/common/bootanimation/bootanimation_monet.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
+
 # Pixel Settings + SystemUI (unconditional, Rising-style)
 PRODUCT_PACKAGES += \
     SettingsGoogle \
