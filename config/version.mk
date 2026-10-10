@@ -52,6 +52,9 @@ CARPEDIEM_VERSION_CODENAME := Initium
 # Device maintainer (override per-device after inherit, or via env)
 CARPEDIEM_MAINTAINER ?= Unknown
 
+# Chipset marketing name for About (defaults to board platform, e.g. mt6878)
+CARPEDIEM_CHIPSET ?=
+
 # Build type: official vs unofficial (default unofficial)
 # Lazy so device-mk/env/CLI assignments landing after inherit still apply
 CARPEDIEM_OFFICIAL ?= false
@@ -70,6 +73,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.carpediem.build.version=$(CARPEDIEM_VERSION_MAJOR).$(CARPEDIEM_VERSION_MINOR) \
     ro.carpediem.codename=$(CARPEDIEM_VERSION_CODENAME) \
     ro.carpediem.maintainer=$(CARPEDIEM_MAINTAINER) \
+    ro.carpediem.chipset=$(CARPEDIEM_CHIPSET) \
     ro.carpediem.packagetype=$(CARPEDIEM_PACKAGE_TYPE) \
     ro.carpediem.releasetype=$(CARPEDIEM_BUILDTYPE) \
     ro.modversion=$(CARPEDIEM_VERSION)
