@@ -326,6 +326,12 @@ ifeq ($(WITH_GMS),true)
 $(call inherit-product, vendor/gms/$(GMS_MAKEFILE))
 endif
 
+# Camera apps (devices add their own; false removes them)
+PRODUCT_NO_CAMERA ?= false
+ifeq ($(strip $(PRODUCT_NO_CAMERA)),true)
+PRODUCT_PACKAGES := $(filter-out Aperture Camera2,$(PRODUCT_PACKAGES))
+endif
+
 # Wallpaper & style
 PRODUCT_PACKAGES += \
     ThemePicker
