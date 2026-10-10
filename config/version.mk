@@ -55,10 +55,10 @@ CARPEDIEM_MAINTAINER ?= Unknown
 # Chipset marketing name for About (defaults to board platform, e.g. mt6878)
 CARPEDIEM_CHIPSET ?=
 
-# Build type: official vs unofficial (default unofficial)
+# Build type: official vs community (default community)
 # Lazy so device-mk/env/CLI assignments landing after inherit still apply
 CARPEDIEM_OFFICIAL ?= false
-CARPEDIEM_BUILDTYPE ?= $(if $(filter true,$(CARPEDIEM_OFFICIAL)),OFFICIAL,UNOFFICIAL)
+CARPEDIEM_BUILDTYPE ?= $(if $(filter true,$(CARPEDIEM_OFFICIAL)),OFFICIAL,COMMUNITY)
 CARPEDIEM_VERSION_SUFFIX = $(LINEAGE_BUILD_DATE)-$(CARPEDIEM_BUILDTYPE)$(LINEAGE_EXTRAVERSION)-$(LINEAGE_BUILD)
 
 # Package type, tracks WITH_GMS (lazy so common.mk defaults apply)
