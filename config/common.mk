@@ -350,6 +350,8 @@ endif
 # Default launcher (GMS builds default to Pixel Launcher)
 TARGET_DEFAULT_PIXEL_LAUNCHER ?= true
 ifeq ($(WITH_GMS),true)
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.sys.quickswitch_pixel_shipped=1
 ifeq ($(TARGET_DEFAULT_PIXEL_LAUNCHER),true)
 PRODUCT_SYSTEM_PROPERTIES += \
     persist.sys.default_launcher=1
@@ -358,6 +360,8 @@ PRODUCT_SYSTEM_PROPERTIES += \
     persist.sys.default_launcher=0
 endif
 else
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.sys.quickswitch_pixel_shipped=0
 PRODUCT_SYSTEM_PROPERTIES += \
     persist.sys.default_launcher=0
 endif
