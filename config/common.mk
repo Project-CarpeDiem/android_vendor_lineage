@@ -330,6 +330,23 @@ endif
 PRODUCT_PACKAGES += \
     ThemePicker
 
+# Lawnchair (third recents provider; off on vanilla like upstream)
+ifeq ($(strip $(WITH_GMS)),false)
+TARGET_PREBUILT_LAWNCHAIR_LAUNCHER := false
+endif
+TARGET_PREBUILT_LAWNCHAIR_LAUNCHER ?= true
+ifeq ($(strip $(TARGET_PREBUILT_LAWNCHAIR_LAUNCHER)),true)
+PRODUCT_PACKAGES += \
+    Lawnchair \
+    LawnchairOverlay \
+    Lawnicons
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.sys.quickswitch_lawnchair_shipped=1
+else
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.sys.quickswitch_lawnchair_shipped=0
+endif
+
 # Default launcher (GMS builds default to Pixel Launcher)
 TARGET_DEFAULT_PIXEL_LAUNCHER ?= true
 ifeq ($(WITH_GMS),true)
